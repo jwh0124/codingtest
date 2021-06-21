@@ -1,18 +1,19 @@
 public class JadenCase {
     public static void main(String[] args) {
-        System.out.println(solution("A   B  Cde"));
+        solution("  A   B  cde  hello");
     }
 
     public static String solution(String s) {
-        // TODO:
-        // a[][][]b[][]cde -> A[][][]B[][]Cde
-        String[] terms = s.toLowerCase().split(" ");
         StringBuilder answer = new StringBuilder();
-        for (var term : terms) {
-            if (!term.equals(" ")) {
-                answer.append(term.substring(0, 1).toUpperCase() + term.substring(1).toLowerCase() + " ");
+
+        for (var i = 0; i < s.length(); i++) {
+            String a = s.substring(i, i + 1);
+            if (i == 0 || s.substring(i - 1, i).equals(" ")) {
+                answer.append(a.toUpperCase());
+            } else {
+                answer.append(a.toLowerCase());
             }
         }
-        return answer.toString().trim();
+        return answer.toString();
     }
 }
